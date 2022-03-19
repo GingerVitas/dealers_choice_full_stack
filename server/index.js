@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const syncAndSeed = require('./database/syncAndSeed');
 
+app.use('/api/movies', require('./routes/movies'));
+
 
 const init = async() => {
   try{
