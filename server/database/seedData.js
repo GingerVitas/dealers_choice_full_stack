@@ -62,7 +62,7 @@ const top27 = [
     rating: 'R',
     description: `In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.`,
     director: 'Francis Ford Coppola',
-    streamingService: '',
+    streamingService: 'Paramount+',
     boxArt: 'https://e.snmc.io/i/300/s/32162dc6995a4284dd237e7eb32f750c/6436714'
   },
   {

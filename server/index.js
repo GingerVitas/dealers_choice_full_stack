@@ -1,9 +1,12 @@
 const express = require('express');
 const app = express();
 const syncAndSeed = require('./database/syncAndSeed');
+const path = require('path')
 
+app.use('/dist', express.static(path.join(__dirname, '../dist')))
 app.use('/api/movies', require('./routes/movies'));
 
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../src/index.html')))
 
 const init = async() => {
   try{

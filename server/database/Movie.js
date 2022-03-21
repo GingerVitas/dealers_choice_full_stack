@@ -2,7 +2,7 @@ const db = require('./db');
 const Sequelize = require('sequelize');
 const genres = ['Drama', 'Crime', 'Action', 'Adventure', 'Fantasy', 'Biography', 'History', 'Sci-Fi', 'Romance', 'Rom-Com', 'Western', 'Family', 'Animation', 'Musical', 'Thriller', 'Horror', 'Comedy', 'Mystery']
 const ratings = ['G', 'PG', 'PG-13', 'R', 'X', 'Unrated'];
-const streamingServices = ['Showtime', 'Netflix', 'HBO Max', 'Amazon Prime Video', 'Hulu', 'PeacockTV', 'Paramount+', 'Disney+', 'Unavailable to Stream']
+const streamingServices = ['Showtime', 'Netflix', 'HBO Max', 'Amazon Prime', 'Hulu', 'PeacockTV', 'Paramount+', 'Disney+', 'Unavailable to Stream']
 
 const Movie = db.define('movie', {
   title: {
