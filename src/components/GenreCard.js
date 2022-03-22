@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {genreFilter} from '../store/movieStore';
+import {genreFilter} from '../store/moviesStore';
 import {Link} from 'react-router-dom';
 
 const GenreCard = ({movies, filter}) => {
@@ -14,7 +14,7 @@ const GenreCard = ({movies, filter}) => {
   return (
     <ul className='filterList'>
     {genres.map(genre=>(
-      <Link to={'/movies'} onClick={()=> filter(genre)}><li key={genre}>
+      <Link to={'/movies'} onClick={()=> filter(genre)} style={{ textDecoration: 'none', color: 'inherit' }}><li key={genre}>
         {genre}
       </li></Link>) 
       )}

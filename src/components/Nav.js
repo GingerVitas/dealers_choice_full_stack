@@ -4,18 +4,18 @@ import {connect, useDispatch} from 'react-redux';
 import Genres from './Genres';
 import StreamingServices from './StreamingServices';
 import Ratings from './Ratings';
-import {loadMovies} from '../store/movieStore';
+import {loadMovies} from '../store/moviesStore';
 
-const Nav = props => {
+const Nav = ({location: {pathname}}) => {
   const dispatch = useDispatch();
   return (
     <div>
       <div className='navContainer'>
         <ul className='nav'>
-          <li onClick={()=>dispatch(loadMovies())}><Link to='/movies'>All Movies</Link></li>
-          <li onClick={()=>dispatch(loadMovies())}><Link to='/movies/genres'>Genres</Link></li>
-          <li onClick={()=>dispatch(loadMovies())}><Link to='/movies/streamers'>Streaming Services</Link></li>
-          <li onClick={()=>dispatch(loadMovies())}><Link to='/movies/ratings'>Rating</Link></li>
+          <li onClick={()=>dispatch(loadMovies())}><Link to='/movies' style={{ textDecoration: 'none', color: 'inherit' }}>All Movies</Link></li>
+          <li><Link to='/movies/genres' className={pathname === '/movies/genres' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Genres</Link></li>
+          <li><Link to='/movies/streamers' className={pathname === '/movies/streamers' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Streaming Services</Link></li>
+          <li><Link to='/movies/ratings' className={pathname === '/movies/ratings' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Rating</Link></li>
         </ul>
       </div>
       <div className='filterContainer'>

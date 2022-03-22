@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect, useDispatch} from 'react-redux';
-import {ratingFilter as filter} from '../store/movieStore';
+import {ratingFilter as filter} from '../store/moviesStore';
 import {Link} from 'react-router-dom';
 
 const RatingCard = ({movies}) => {
@@ -15,7 +15,7 @@ const RatingCard = ({movies}) => {
   return (
     <ul className='filterList'>
     {ratings.map(rating=>(
-      <Link to={'/movies'} onClick={()=>dispatch(filter(rating))}><li key={rating}>
+      <Link to={'/movies'} onClick={()=>dispatch(filter(rating))} style={{ textDecoration: 'none', color: 'inherit' }}><li key={rating}>
         {rating}
       </li></Link>
     ))}

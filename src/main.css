@@ -17,6 +17,13 @@ h1 {
   padding: 0;
 }
 
+li:hover {
+  background-color: aqua;
+}
+.nav a.selected{
+  background-color: aqua;
+}
+
 .genres, .streamers, .ratings {
   display: flex;
   flex-wrap: wrap;
@@ -27,6 +34,7 @@ h1 {
   width: 85%;
   margin: auto;
   text-align: center;
+  justify-content: center;
 }
 
 .gridContainer {
@@ -50,25 +58,60 @@ h1 {
   display: grid;
   grid-template-areas: "boxImg boxImg"
                        "director director"
-                       "releaseYear releaseYear"
                        "genre rating";
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
   padding: .5em;
-  border: solid 2px black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
   text-align: center;
   align-items: center;
+}
+.singleMovieGrid {
+  display: grid;
+  /* grid-template-columns: 75%;
+  grid-template-rows: 60%;
+  grid-auto-rows: 60vh;
+  grid-auto-columns: 75%; */
+  grid-gap: 1vw;
+  text-align: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.singleMovieCard {
+  display: grid;
+  grid-template-areas: "boxImg boxImg title title"
+                       "boxImg boxImg director releaseYear"
+                       "boxImg boxImg description description"
+                       "boxImg boxImg description description"
+                       "boxImg boxImg description description"
+                       "genre rating streamingService runTime";
+  grid-template-rows: 12vh 12vh 12vh 12vh 12vh 6vh;
+  /* grid-template-columns: .5fr .5fr 1fr 1fr;
+  padding: .5em; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}   
+
+.movieCard:hover {
+  transform: scale(1.05)
 }
 
 .boxImg {
   grid-area: boxImg;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   max-height: 100%;
+  border-radius: 5px;
 }
 
 .title {
   grid-area: title;
+  font-size: 26px;
+  font-weight: bold;
 }
 .releaseYear {
   grid-area: releaseYear;
@@ -84,4 +127,10 @@ h1 {
 }
 .director {
   grid-area: director;
+}
+.streamingService {
+  grid-area: streamingService;
+}
+.description {
+  grid-area: description;
 }

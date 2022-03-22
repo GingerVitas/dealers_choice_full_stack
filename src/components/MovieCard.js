@@ -6,13 +6,12 @@ import {NavLink} from 'react-router-dom';
 const MovieList = ({movies}) => {
   return (
     movies.map(movie=> (
-      <div className='movieCard' key={movie.id}>
+      <NavLink to={`/movie/${movie.id}`} className='movieCard' key={movie.id} style={{ textDecoration: 'none', color: 'inherit' }}>
         <img className='boxImg' src={movie.boxArt} />
-        <div className='releaseYear'>Released in {movie.releaseYear}</div>
         <div className='genre'>{movie.genre}</div>
         <div className='rating'>{movie.rating}</div>
         <div className='director'>Directed by {movie.director}</div>
-      </div>
+      </NavLink>
     ))
   )
 }

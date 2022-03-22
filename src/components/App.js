@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, HashRouter, Link } from 'react-router-dom';
-import {loadMovies} from '../store/movieStore';
+import {loadMovies} from '../store/moviesStore';
 import {connect} from 'react-redux';
 import Nav from './Nav';
 import MovieList from './MovieList';
@@ -20,10 +20,10 @@ class App extends React.Component {
       <HashRouter>
         <div>
           <div>
-            <Link to='/'><h1>ACME Movie Database</h1></Link>
+            <Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}><h1>ACME Movie Database</h1></Link>
           </div>
           <nav>
-            <Nav />
+            <Route component={Nav} />
           </nav>
           <div className='renderContainer'>
             <Route path='/movies' component={MovieList} />

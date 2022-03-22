@@ -5,6 +5,7 @@ const path = require('path')
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')))
 app.use('/api/movies', require('./routes/movies'));
+app.use('/api/movie', require('./routes/movie'));
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../src/index.html')))
 

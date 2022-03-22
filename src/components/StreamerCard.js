@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {streamerFilter} from '../store/movieStore';
+import {streamerFilter} from '../store/moviesStore';
 import {Link} from 'react-router-dom';
 
 const StreamerCard = ({movies, filter}) => {
@@ -13,7 +13,7 @@ const StreamerCard = ({movies, filter}) => {
   return (
     <ul className='filterList'>
       {streamers.map(streamer=>(
-      <Link to={'/movies'} onClick={() => filter(streamer)}><li key={streamer}>
+      <Link to={'/movies'} onClick={() => filter(streamer)} style={{ textDecoration: 'none', color: 'inherit' }}><li key={streamer}>
         {streamer}
       </li></Link>
     ))}
