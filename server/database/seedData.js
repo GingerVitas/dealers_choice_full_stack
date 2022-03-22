@@ -71,7 +71,7 @@ const top27 = [
     genre: 'Drama',
     runTime: 96,
     rating: 'Unrated',
-    description: '',
+    description: `The defense and the prosecution have rested and the jury is filing into the jury room to decide if a young Spanish-American is guilty or innocent of murdering his father. What begins as an open and shut case soon becomes a mini-drama of each of the jurors' prejudices and preconceptions about the trial, the accused, and each other.`,
     director: 'Sidney Lumet',
     streamingService: 'Amazon Prime',
     boxArt: 'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/e02s4wmTAExkKg0yF4dEG98ZRpK.jpg'
