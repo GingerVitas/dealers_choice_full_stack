@@ -56,38 +56,50 @@ class MovieForm extends React.Component{
 
 
     return(
-      <div className='formContainer'>
-        <form id='addMovieForm' onSubmit={handleSubmit}>
-          <input name='title' value={title} onChange={handleChange} placeholder='Movie Title' />
+      <div>
+        <form className='formContainer' onSubmit={handleSubmit}>
+          <ul>
+            <li>
+              <input className="field-style field-split align-left" name='title' value={title} onChange={handleChange} placeholder='Movie Title' />
 
-          <input name='director' value={director} onChange={handleChange} placeholder='Director Name' />
-          <input name='releaseYear' value={releaseYear} onChange={handleChange} placeholder='Release Year' />
-          <input name='runTime' value={runTime} onChange={handleChange} placeholder='Movie Run Time' />
-          <input name='description' value={description} onChange={handleChange} placeholder='Movie Description' />
-          <input name='boxArt' value={boxArt} onChange={handleChange} placeholder='Box Art URL' />
+              <input className="field-style field-split align-right" name='director' value={director} onChange={handleChange} placeholder='Director Name' />
+            </li>
+            <li>
+              <input className="field-style field-split align-left" name='releaseYear' value={releaseYear} onChange={handleChange} placeholder='Release Year' />
+              <input className="field-style field-split align-right" name='runTime' value={runTime} onChange={handleChange} placeholder='Movie Run Time' />
+            </li>
+            <li>
+              <input className="field-style field-split align-left" name='boxArt' value={boxArt} onChange={handleChange} placeholder='Box Art URL' />
+              <select className="field-style field-split align-right" name='genre' value={genre} onChange={handleChange}>
+                <option value=''>--Select a Genre--</option>
+                { genres.map(genre => (
+                  <option value={genre} key={genre}>{genre}</option>
+                )) }
+              </select>
+            </li>
+            <li>
+              <select className="field-style field-split align-left" name='streamingService' value={streamingService} onChange={handleChange}>
+                <option value=''>-- Streaming Service --</option>
+                { streamers.map(streamer => (
+                  <option value={streamer} key={streamer}>{streamer}</option>
+                )) }
+              </select>
+            
+              <select className="field-style field-split align-right" name='rating' value={rating} onChange={handleChange}>
+                <option value=''>--Select a Rating--</option>
+                { ratings.map(rating => (
+                  <option value={rating} key={rating}>{rating}</option>
+                )) }
+              </select>
+            </li>
+            <li>
+             <textarea className='field-style' name='description' value={description} onChange={handleChange} placeholder='Movie Description' />
+            </li>
+            <li>
+              <button type='submit'>Add Your Movie!</button>
+            </li>
 
-          <select name='genre' value={genre} onChange={handleChange}>
-            <option value=''>--Select a Genre--</option>
-            { genres.map(genre => (
-              <option value={genre} key={genre}>{genre}</option>
-            )) }
-          </select>
-
-          <select name='streamingService' value={streamingService} onChange={handleChange}>
-            <option value=''>-- Select a Streaming Service --</option>
-            { streamers.map(streamer => (
-              <option value={streamer} key={streamer}>{streamer}</option>
-            )) }
-          </select>
-
-          <select name='rating' value={rating} onChange={handleChange}>
-            <option value=''>--Select a Rating--</option>
-            { ratings.map(rating => (
-              <option value={rating} key={rating}>{rating}</option>
-            )) }
-          </select>
-
-          <button type='submit'>Add Your Movie!</button>
+          </ul>
         </form>
       </div>
     )
