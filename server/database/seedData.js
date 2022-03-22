@@ -49,7 +49,7 @@ const top27 = [
     genre: 'History',
     runTime: 195,
     rating: 'R',
-    description: '',
+    description: 'The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.',
     director: 'Steven Spielberg',
     streamingService: 'Unavailable to Stream',
     boxArt: 'https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg'

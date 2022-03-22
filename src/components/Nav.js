@@ -5,6 +5,7 @@ import Genres from './Genres';
 import StreamingServices from './StreamingServices';
 import Ratings from './Ratings';
 import {loadMovies} from '../store/moviesStore';
+import MovieForm from './MovieForm';
 
 const Nav = ({location: {pathname}}) => {
   const dispatch = useDispatch();
@@ -16,12 +17,14 @@ const Nav = ({location: {pathname}}) => {
           <li><Link to='/movies/genres' className={pathname === '/movies/genres' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Genres</Link></li>
           <li><Link to='/movies/streamers' className={pathname === '/movies/streamers' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Streaming Services</Link></li>
           <li><Link to='/movies/ratings' className={pathname === '/movies/ratings' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Rating</Link></li>
+          <li><Link to='/movies/add' className={pathname === '/movies/add' ? 'selected' : ''} style={{ textDecoration: 'none', color: 'inherit' }}>Add a Movie!</Link></li>
         </ul>
       </div>
       <div className='filterContainer'>
             <Route path='/movies/genres' component={Genres} />
             <Route path='/movies/streamers' component={StreamingServices} />
             <Route path='/movies/ratings' component={Ratings} />
+            <Route path='/movies/add' component={MovieForm} />
       </div>
     </div>
   )

@@ -71,13 +71,13 @@ export const addMovie = (movie, history) => {
   return async(dispatch) => {
     const newMovie = (await axios.post('/api/movies', movie)).data;
     dispatch(_addMovie(newMovie));
-    history.push(`/movies/${newMovie.id}`)
+    history.push(`/movie/${newMovie.id}`)
   }
 };
 
 export const deleteMovie = (movie, history) => {
   return async(dispatch) => {
-    await axios.delete(`/api/movies/${movie.id}`);
+    await axios.delete(`/api/movie/${movie.id}`);
     dispatch(_deleteMovie(movie));
     history.push('/movies')
   }

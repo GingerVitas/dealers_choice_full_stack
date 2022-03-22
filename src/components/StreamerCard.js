@@ -13,9 +13,9 @@ const StreamerCard = ({movies, filter}) => {
   return (
     <ul className='filterList'>
       {streamers.map(streamer=>(
-      <Link to={'/movies'} onClick={() => filter(streamer)} style={{ textDecoration: 'none', color: 'inherit' }}><li key={streamer}>
-        {streamer}
-      </li></Link>
+      <li key={streamer}>
+        <Link to={'/movies'} onClick={() => filter(streamer)} style={{ textDecoration: 'none', color: 'inherit' }}>{streamer}</Link>
+      </li>
     ))}
     </ul>
   )

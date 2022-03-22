@@ -20,4 +20,14 @@ router.get('/:id', async(req, res, next) => {
   }
 })
 
+router.post('/', async(req, res, next) => {
+  try{
+    const newMovie = await Movie.create(req.body);
+    res.status(201).send(newMovie)
+  }
+  catch(ex){
+    next(ex)
+  }
+})
+
 module.exports = router;

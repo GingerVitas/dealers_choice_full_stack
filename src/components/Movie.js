@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchMovie} from '../store/movieStore';
+import {deleteMovie} from '../store/moviesStore';
 
 class Movie extends React.Component {
   componentDidMount() {
@@ -9,7 +10,7 @@ class Movie extends React.Component {
   }
 
   render() {
-    const {movie} = this.props
+    const {movie, deleteMovie} = this.props
     if (!movie) return null
     return (
       <div className='singleMovieGrid'>
@@ -24,6 +25,7 @@ class Movie extends React.Component {
           <div className='streamingService'>Available to stream on {movie.streamingService}</div>
           <div calssName='runTime'>{movie.runTime} minutes</div>
         </div>
+        <button onClick={()=> deleteMovie(movie)}>I don't like this movie anymore. Get rid of it!</button>
       </div>
 
     )
@@ -31,9 +33,10 @@ class Movie extends React.Component {
 
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, {history}) => {
   return {
-    fetchMovie: (id) => dispatch(fetchMovie(id))
+    fetchMovie: (id) => dispatch(fetchMovie(id)),
+    deleteMovie: (movie) => dispatch(deleteMovie(movie, history))
   }
 }
 

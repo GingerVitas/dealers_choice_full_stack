@@ -3,6 +3,8 @@ const app = express();
 const syncAndSeed = require('./database/syncAndSeed');
 const path = require('path')
 
+app.use(express.json());
+
 app.use('/dist', express.static(path.join(__dirname, '../dist')))
 app.use('/api/movies', require('./routes/movies'));
 app.use('/api/movie', require('./routes/movie'));
