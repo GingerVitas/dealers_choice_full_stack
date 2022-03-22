@@ -1,21 +1,19 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import MovieCard from './MovieCard';
+import {Route} from 'react-router-dom';
 
-
-const MovieList = ({movies}) => {
+const MovieList = props => {
   return (
-    movies.map(movie=> (
-      <div className='movieCard' key={movie.id}>
-        <div className='boxArtImage'><img src={movie.boxArt} /></div>
-        <div className='title'>{movie.title}</div>
-        <div className='releaseYear'>{movie.releaseYear}</div>
-        <div className='genre'>{movie.genre}</div>
-        <div className='rating'>{movie.rating}</div>
-        <div className='runTime'>{movie.runTime}</div>
-        <div className='director'>{movie.director}</div>
+    <div>
+      <div className='gridContainer'>
+        <h2>Your personalized Movie List</h2>
+        <div className='movieGrid'>
+          <Route component={MovieCard} />
+        </div>
       </div>
-    ))
+
+    </div>
   )
 }
 
-export default connect(state=>state)(MovieList)
+export default MovieList

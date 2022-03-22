@@ -3,7 +3,9 @@ import { Route, HashRouter, Link } from 'react-router-dom';
 import {loadMovies} from '../store/movieStore';
 import {connect} from 'react-redux';
 import Nav from './Nav';
-import MovieList from './MovieList'
+import MovieList from './MovieList';
+import Movie from './Movie';
+
 
 class App extends React.Component {
   componentDidMount() {
@@ -18,14 +20,14 @@ class App extends React.Component {
       <HashRouter>
         <div>
           <div>
-            <h1>ACME Movie Database</h1>
-            <h3>Your personalized destination for movie info</h3>
+            <Link to='/'><h1>ACME Movie Database</h1></Link>
           </div>
           <nav>
             <Nav />
           </nav>
-          <div>
+          <div className='renderContainer'>
             <Route path='/movies' component={MovieList} />
+            <Route path='/movies/:id' component={Movie} />
           </div>
         </div>
       </HashRouter>

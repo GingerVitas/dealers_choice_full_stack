@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+
 const LOAD_MOVIES = 'LOAD_MOVIES'
 const ADD_MOVIE = 'ADD_MOVIE';
 const DELETE_MOVIE = 'DELETE_MOVIE';
 const UPDATE_MOVIE = 'UPDATE_MOVIE';
+const GENRE_FILTER = 'GENRE_FILTER'
 
 //Action Creators
 const _loadMovies = (movies) => {
@@ -33,6 +35,13 @@ const _updateMovie = (movie) => {
     movie
   }
 };
+
+const _genreFilter = (genre) => {
+  return {
+    type: GENRE_FILTER,
+    genre
+  }
+}
 
 //thunks
 export const loadMovies = () => {
@@ -65,6 +74,15 @@ export const  updateMovie = (movie, history) => {
   }
 }
 
+export const genreFilter = (genre, history) => {
+  return async(dispatch) => {
+    const movies = (await axios.get('/api/movies')).data;
+    dispatch(_loadMovies(movies));
+    dispatch(_genreFilter(genre));
+    history.push(`/movies/genres/${genre}`)
+  }
+}
+
 
 const movieReducer = (state = [], action) => {
   if(action.type === LOAD_MOVIES){
@@ -78,6 +96,9 @@ const movieReducer = (state = [], action) => {
   };
   if(action.type === UPDATE_MOVIE){
     return [...state.map(movie => movie.id !== action.movie.id ? movie : action.movie)]
+  }
+  if(action.type === GENRE_FILTER){
+    return [...state.filter(movie => movie.genre === action.genre)]
   }
   return state;
 };

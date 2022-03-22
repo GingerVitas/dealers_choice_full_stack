@@ -1,0 +1,87 @@
+h1 {
+  text-align: center;
+  font-size: 60px;
+}
+
+.navContainer, .filterContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.nav, .genres, .streamers, .ratings, .filterList{
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: 85%;
+  padding: 0;
+}
+
+.genres, .streamers, .ratings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.renderContainer {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}
+
+.gridContainer {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.movieGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+  grid-template-rows: repeat(auto-fit, minmax(450px, 450px));
+  grid-auto-rows: minmax(450px, 450px);
+  grid-auto-columns: minmax(250px, 250px);
+  grid-gap: 1vw;
+  text-align: center;
+  justify-content: center;
+}
+
+.movieCard {
+  display: grid;
+  grid-template-areas: "boxImg boxImg"
+                       "director director"
+                       "releaseYear releaseYear"
+                       "genre rating";
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  padding: .5em;
+  border: solid 2px black;
+  text-align: center;
+  align-items: center;
+}
+
+.boxImg {
+  grid-area: boxImg;
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+
+.title {
+  grid-area: title;
+}
+.releaseYear {
+  grid-area: releaseYear;
+}
+.genre {
+  grid-area: genre;
+}
+.rating {
+  grid-area: rating;
+}
+.runTime {
+  grid-area: runTime;
+}
+.director {
+  grid-area: director;
+}
