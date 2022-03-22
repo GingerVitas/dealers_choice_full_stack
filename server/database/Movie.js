@@ -26,10 +26,6 @@ const Movie = db.define('movie', {
   },
   description: {
     type: Sequelize.TEXT,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
   },
   director: {
     type: Sequelize.STRING,

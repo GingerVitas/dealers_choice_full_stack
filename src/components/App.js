@@ -27,7 +27,7 @@ class App extends React.Component {
           </nav>
           <div className='renderContainer'>
             <Route path='/movies' component={MovieList} />
-            <Route path='/movies/:id' component={Movie} />
+            <Route exact path='/movie/:id' component={Movie} />
           </div>
         </div>
       </HashRouter>

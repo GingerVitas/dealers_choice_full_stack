@@ -5,7 +5,9 @@ const LOAD_MOVIES = 'LOAD_MOVIES'
 const ADD_MOVIE = 'ADD_MOVIE';
 const DELETE_MOVIE = 'DELETE_MOVIE';
 const UPDATE_MOVIE = 'UPDATE_MOVIE';
-const GENRE_FILTER = 'GENRE_FILTER'
+const GENRE_FILTER = 'GENRE_FILTER';
+const STREAMER_FILTER = 'STREAMER_FILTER';
+const RATING_FILTER = 'RATING_FILTER';
 
 //Action Creators
 const _loadMovies = (movies) => {
@@ -42,6 +44,18 @@ const _genreFilter = (genre) => {
     genre
   }
 }
+const _streamerFilter = (streamingService) => {
+  return {
+    type: STREAMER_FILTER,
+    streamingService
+  }
+}
+const _ratingFilter = (rating) => {
+  return {
+    type: RATING_FILTER,
+    rating
+  }
+}
 
 //thunks
 export const loadMovies = () => {
@@ -74,12 +88,20 @@ export const  updateMovie = (movie, history) => {
   }
 }
 
-export const genreFilter = (genre, history) => {
-  return async(dispatch) => {
-    const movies = (await axios.get('/api/movies')).data;
-    dispatch(_loadMovies(movies));
+export const genreFilter = (genre) => {
+  return (dispatch) => {
     dispatch(_genreFilter(genre));
-    history.push(`/movies/genres/${genre}`)
+  }
+}
+
+export const streamerFilter = (streamingService) => {
+  return (dispatch) => {
+    dispatch(_streamerFilter(streamingService));
+  }
+}
+export const ratingFilter = (rating) => {
+  return (dispatch) => {
+    dispatch(_ratingFilter(rating));
   }
 }
 
@@ -99,6 +121,12 @@ const movieReducer = (state = [], action) => {
   }
   if(action.type === GENRE_FILTER){
     return [...state.filter(movie => movie.genre === action.genre)]
+  }
+  if(action.type === STREAMER_FILTER){
+    return [...state.filter(movie => movie.streamingService === action.streamingService)]
+  }
+  if(action.type === RATING_FILTER){
+    return [...state.filter(movie => movie.rating === action.rating)]
   }
   return state;
 };

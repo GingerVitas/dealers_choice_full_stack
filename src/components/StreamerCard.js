@@ -1,23 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {streamerFilter} from '../store/movieStore';
+import {Link} from 'react-router-dom';
 
-const StreamerCard = ({movies}) => {
+const StreamerCard = ({movies, filter}) => {
   const streamers = movies.reduce((streamerArr, movie) => {
     if(!streamerArr.includes(movie.streamingService)) {
       streamerArr.push(movie.streamingService)
     }
     return streamerArr;
   }, [])
-
   return (
     <ul className='filterList'>
-          {streamers.map(streamer=>(
-      <li key={streamer}>
+      {streamers.map(streamer=>(
+      <Link to={'/movies'} onClick={() => filter(streamer)}><li key={streamer}>
         {streamer}
-      </li>
+      </li></Link>
     ))}
     </ul>
   )
 }
 
-export default connect(state=>state)(StreamerCard)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    filter: (streamingService) => dispatch(streamerFilter(streamingService))
+  }
+}
+
+export default connect(state=>state, mapDispatchToProps)(StreamerCard)
