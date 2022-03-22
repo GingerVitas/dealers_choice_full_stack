@@ -1,11 +1,11 @@
-const seedData = require('./seedData');
+const top27 = require('./seedData');
 const {db, Movie} = require('./index');
 
 const syncAndSeed = async() => {
   try{
     await db.sync({force: true})
 
-    await Movie.bulkCreate(seedData).then(console.log('Movies Seeded!'))
+    await Movie.bulkCreate(top27).then(console.log('Movies Seeded!'))
   }
   catch(ex){
     console.log(ex)
