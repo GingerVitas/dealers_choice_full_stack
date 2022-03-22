@@ -13,20 +13,20 @@ class Movie extends React.Component {
     const {movie, deleteMovie} = this.props
     if (!movie) return null
     return (
-      <div className='singleMovieGrid'>
-        <div className='singleMovieCard' key={movie.id}>
-          <img className='boxImg' src={movie.boxArt} />
-          <div className='title'>{movie.title}</div>
-          <div className='description'>{movie.description}</div>
-          <div className='releaseYear'>Released in {movie.releaseYear}</div>
-          <div className='genre'>{movie.genre}</div>
-          <div className='rating'>Rated {movie.rating}</div>
-          <div className='director'>Directed by {movie.director}</div>
-          <div className='streamingService'>Available to stream on {movie.streamingService}</div>
-          <div calssName='runTime'>{movie.runTime} minutes</div>
-        </div>
-        <button onClick={()=> deleteMovie(movie)}>I don't like this movie anymore. Get rid of it!</button>
-      </div>
+      // <div className='singleMovieGrid'>
+      //   <div className='singleMovieCard' key={movie.id}>
+      //     <img className='boxImg' src={movie.boxArt} />
+      //     <div className='title'>{movie.title}</div>
+      //     <div className='description'>{movie.description}</div>
+      //     <div className='releaseYear'>Released in {movie.releaseYear}</div>
+      //     <div className='genre'>{movie.genre}</div>
+      //     <div className='rating'>Rated {movie.rating}</div>
+      //     <div className='director'>Directed by {movie.director}</div>
+      //     <div className='streamingService'>Available to stream on {movie.streamingService}</div>
+      //     <div calssName='runTime'>{movie.runTime} minutes</div>
+      //   </div>
+      //   <button onClick={()=> deleteMovie(movie)}>I don't like this movie anymore. Get rid of it!</button>
+      // </div>
 
     )
   }
