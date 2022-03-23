@@ -9,12 +9,12 @@ class MovieForm extends React.Component{
       boxArt: '',
       title: '',
       description: '',
-      releaseYear: 1990,
+      releaseYear: '',
       genre: '',
       rating: '',
       director: '',
       streamingService: '',
-      runTime: 100
+      runTime: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -65,8 +65,8 @@ class MovieForm extends React.Component{
               <input className="field-style field-split align-right" name='director' value={director} onChange={handleChange} placeholder='Director Name' />
             </li>
             <li>
-              <input className="field-style field-split align-left" name='releaseYear' value={releaseYear} onChange={handleChange} placeholder='Release Year' />
-              <input className="field-style field-split align-right" name='runTime' value={runTime} onChange={handleChange} placeholder='Movie Run Time' />
+              <input className="field-style field-split align-left" name='releaseYear' value={releaseYear} onChange={ev => this.setState({releaseYear: ev.target.valueAsNumber})} placeholder='Release Year' />
+              <input className="field-style field-split align-right" name='runTime' value={runTime} onChange={ev => this.setState({runTime: ev.target.valueAsNumber})} placeholder='Movie Run Time' />
             </li>
             <li>
               <input className="field-style field-split align-left" name='boxArt' value={boxArt} onChange={handleChange} placeholder='Box Art URL' />
